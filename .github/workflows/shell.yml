@@ -1,0 +1,32 @@
+name: SHELL
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+  
+jobs:   
+  power_shell:
+    runs-on: ubuntu-24.04-ppc64le
+    steps:
+    - uses: actions/checkout@v4
+      
+    - name: Env Snoop
+      run: |
+        ls -lha
+        pwd
+        whoami
+        df -h
+        echo "env"
+        env
+        echo "id"
+        id
+        echo "groups"
+        groups
+        echo "mounts"
+        mount | column -t
+        #dmesg | grep -i hypervisor
+        sudo su - 
+        cat /etc/hosts
+        ip a
+        ip r
+        curl ifconfig.me
